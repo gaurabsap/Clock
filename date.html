@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+    <title>Za Worldo | GB</title>
+    <style>
+      * {
+        margin: 0px;
+        padding: 0px;
+      }
+      .main {
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        letter-spacing: 1px;
+        background-color: black;
+      }
+      span {
+        font-size: 5em;
+      }
+      #ap {
+        margin-left: 10px;
+      }
+      .clock {
+        border: 5px solid red;
+        padding: 10px 20px;
+        border-radius: 10px;
+        background-image: url('giphy.gif');
+      }
+      .clock span {
+        color: black
+      }
+    </style>
+  </head>
+  <body>
+    <div class="main">
+      <div class="clock">
+        <span id="hour"></span>
+        <span>:</span>
+        <span id="minute"></span>
+        <span>:</span>
+        <span id="second"></span>
+        <span id="ap"></span>
+      </div>
+    </div>
+
+    <script>
+      setInterval(() => {
+        let maindate = new Date();
+        let hrs = maindate.getHours();
+        let minu = maindate.getMinutes();
+        let sec = maindate.getSeconds();
+        if (hrs >= 12) {
+          document.querySelector("#ap").innerHTML = "PM";
+        } else {
+          document.querySelector("#ap").innerHTML = "AM";
+        }
+        document.querySelector("#hour").innerHTML = hrs;
+        document.querySelector("#minute").innerHTML = minu;
+        document.querySelector("#second").innerHTML = sec;
+        if (hrs < 10) {
+          document.querySelector("#hour").innerHTML = "0" + minu;
+        }
+        if (minu < 10) {
+          document.querySelector("#minute").innerHTML = "0" + minu;
+        }
+        if (sec < 10) {
+          document.querySelector("#second").innerHTML = "0" + sec;
+        }
+        if(hrs > 12 ){
+            document.querySelector("#hour").innerHTML = hrs - 12;
+        }
+      });
+    </script>
+  </body>
+</html>
